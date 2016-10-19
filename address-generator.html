@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Wait..you live WHERE????</title>
+<script type="text/javascript" src="addressGenerator.js"></script>
+</head>
+
+<body style="text-align: center; padding: 50px;">
+  <div class="address-block">
+    <h1 id="address-holder">Click a button. :D</h1>
+  </div>
+  <div class="button-wrap">
+    <button onclick="randomAddress()">View one address in the array</button>
+    <button onclick="addressScramble()">Generate a random address</button>
+  </div>
+
+<script type="text/javascript">
+//declare the variables
+var fakeAddress = [["112 ½", "Beacon Street", "Boston", "MA", "02108"], ["565", "N. Clinton Drive", "Milwaukee", "WI", "53202"], ["1313", "Mockingbird Lane", "Mockingbird Heights", "CA", "94952"], ["164", "N. Dutton Street", "Shermer", "IL", "60062"], ["720", "Sedgewick Road", "Cleveland", "OH", "44115"], ["742", "Evergreen Terrace", "Springfield", "MA", "01101"], ["221B", "Baker Street", "Princeton", "NJ", "08540"] ];
+var random1 = Math.floor((Math.random() * fakeAddress.length));
+var addressHolder = document.getElementById("address-holder");
+
+function randomAddress() {
+  var addressPiece =""
+  var famousAddress = ""
+  //chose a famous address at random
+  random1 = Math.floor((Math.random() * fakeAddress.length));
+
+  // loop though all the pieces of a sigle famous address
+  for (var i = 0; i <=4; i++ ) {
+    addressPiece = fakeAddress[random1][i];
+    famousAddress += addressPiece;
+    //add the address pieces to the string with conditional spacing
+    if (i === 1 || i === 3) {
+      famousAddress += ", ";
+    } else if ( i === 4) {
+      ;
+    } else {
+      famousAddress += " ";
+    }
+  }
+
+  addressHolder.innerHTML = famousAddress;
+
+}
+
+function addressScramble() {
+  var jumblePiece = "";
+  var jumblePlace = "";
+
+  for (var i = 0; i <= 4; i++) {
+    random1 = Math.floor((Math.random() * fakeAddress.length));
+    jumblePiece = fakeAddress[random1][i]
+    jumblePlace += jumblePiece
+      if (i === 1 || i === 3) {
+        jumblePlace += ", ";
+      } else if ( i === 4) {
+
+      } else {
+        jumblePlace += " ";
+      }
+  }
+  addressHolder.innerHTML = jumblePlace;
+}
+
+
+</script>
+</body>
+</html>
